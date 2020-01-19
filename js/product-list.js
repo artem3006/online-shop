@@ -4,7 +4,7 @@ class ProductList {
     fetch(productsUrl)
       .then(result => result.json())
       .then(products => {
-        this.products = products;
+        this.products = products.sort( (a, b) => a.price - b.price );
         this.renderProducts(renderContainer, products);
         this.addEventListeners();
       });
@@ -32,7 +32,7 @@ class ProductList {
                       <button class="btn btn-primary buy" data-id="${
                         product.id
                       }">
-                        $${product.price} - Buy
+                        ₴${product.price} - Buy
                       </button>
                     </div>
                   </div>

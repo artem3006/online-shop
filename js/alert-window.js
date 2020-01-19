@@ -9,7 +9,16 @@ function showAlert(message, success = true) {
         </div>`;
   const alertElement = $('body').append(alertTemplate);
   alertElement.alert();
-  setTimeout(() => {
+  let duration;
+  if (success) {
+      etTimeout(() => {
     $('.alert').alert('close');
   }, 1000);
+  } else {
+      etTimeout(() => {
+    $('.alert').alert('close');
+  }, 5000);
+  }
 }
+
+
